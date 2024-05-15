@@ -1,0 +1,125 @@
+.parallax {
+  min-height: 100vh;
+
+  &__body {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 45px 0;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__title {
+    font-size: 56px;
+    font-weight: 600;
+    letter-spacing: -3px;
+    text-transform: uppercase;
+  }
+
+  &__description {
+    font-size: 16px;
+  }
+
+  &__images {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -0%;
+    left: -0%;
+    z-index: 1;
+  }
+}
+
+.images-parallax {
+  &__item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  &__mountains {
+    position: absolute;
+    background: url("../../assets/mountain_3x.webp") top / cover no-repeat;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 2;
+  }
+
+  &__clouds {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    background: url("../../assets/background-main_2x.webp") center / cover
+      no-repeat;
+    z-index: 1;
+  }
+}
+
+.navigation-parallax {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 216px;
+
+  &__left {
+  }
+
+  &__list {
+    display: flex;
+    gap: 60px;
+  }
+
+  &__item {
+  }
+
+  &__item-menu {
+  }
+
+  &__link {
+  }
+
+  &__middle {
+  }
+
+  &__logo {
+  }
+
+  &__logo-img {
+  }
+
+  &__right {
+  }
+
+  &__socials {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__social-logo {
+  }
+
+  &__social-link {
+  }
+
+  &__social-img {
+  }
+}

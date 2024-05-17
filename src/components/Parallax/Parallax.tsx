@@ -6,6 +6,8 @@ import behanceLogo from "../../assets/socials/Behance.svg";
 import instagramLogo from "../../assets/socials/Instagram.svg";
 import dribbleLogo from "../../assets/socials/Dribbble.svg";
 import mediumLogo from "../../assets/socials/Medium.svg";
+import scroll from "../../assets/icons/Mouse.svg";
+import share from "../../assets/icons/Share.svg";
 
 import "./Parallax.scss";
 
@@ -47,11 +49,47 @@ const Parallax = () => {
     },
   };
 
+  const footerAnimation = {
+    initial: {
+      "margin-bottom": "-200px",
+      opacity: "0",
+    },
+    animate: {
+      "margin-bottom": "0",
+      opacity: "1",
+    },
+  };
+
+  const navigateAnimation = {
+    initial: {
+      "margin-top": "-200px",
+      opacity: "0",
+    },
+    animate: {
+      "margin-top": "0",
+      opacity: "1",
+    },
+  };
+
+  const headerAnimation = {
+    initial: {
+      opacity: "0",
+    },
+    animate: {
+      opacity: "1",
+    },
+  };
+
   return (
     <section className="parallax">
       <div className="parallax__body">
-        <div className="parallax__content _container">
-          <nav className="parallax__navigation navigation-parallax">
+        <div className="parallax__content">
+          <motion.nav
+            initial={navigateAnimation.initial}
+            animate={navigateAnimation.animate}
+            transition={{ duration: 1 }}
+            className="parallax__navigation navigation-parallax"
+          >
             <article className="navigation-parallax__left">
               <ul className="navigation-parallax__list">
                 <li className="navigation-parallax__item">
@@ -100,13 +138,40 @@ const Parallax = () => {
                 ))}
               </ul>
             </article>
-          </nav>
-          <header className="parallax__header">
+          </motion.nav>
+          <motion.header
+            initial={headerAnimation.initial}
+            animate={headerAnimation.animate}
+            transition={{ duration: 1 }}
+            className="parallax__header"
+          >
             <h1 className="parallax__title">Nepal Mountains</h1>
             <p className="parallax__description">
               Visit the most beautiful mountains in the world
             </p>
-          </header>
+          </motion.header>
+          <motion.footer
+            initial={footerAnimation.initial}
+            animate={footerAnimation.animate}
+            transition={{ duration: 1 }}
+            className="parallax__footer footer-parallax"
+          >
+            <article className="footer-parallax__scroll scroll-parallax">
+              <div className="scroll-parallax__text">Scroll</div>
+              <img
+                src={scroll}
+                alt="scroll"
+                className="scroll-parallax__icon"
+              />
+            </article>
+            <article className="footer-parallax__share">
+              <img
+                src={share}
+                alt="share"
+                className="footer-parallax__share-icon"
+              />
+            </article>
+          </motion.footer>
         </div>
         <div className="parallax__images images-parallax">
           <div className="images-parallax__item">

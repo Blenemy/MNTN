@@ -1,4 +1,14 @@
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+
+import {
+  cloudsAnimation,
+  darkBackgroundAnimation,
+  footerAnimation,
+  headerAnimation,
+  moutainAnimation,
+  navigateAnimation,
+} from "./utils/parallaxAnimations";
 
 import menu from "../../assets/logos/Menu.svg";
 import logo from "../../assets/logos/Mountain Logo.svg";
@@ -34,51 +44,14 @@ const sociallinks = [
   },
 ];
 
+const COMMON_ANIMATION_DURATION = 1.2;
+
 const Parallax = () => {
-  const cloudsAnimation = {
-    initial: { transform: "perspective(1280px) translateZ(700px)" },
-    animate: { transform: "perspective(1280px) translateZ(0)" },
-  };
+  const { scrollY } = useScroll();
 
-  const moutainAnimation = {
-    initial: {
-      transform: "perspective(1280px) translateZ(700px)",
-    },
-    animate: {
-      transform: "perspective(1280px) translateZ(0)",
-    },
-  };
-
-  const footerAnimation = {
-    initial: {
-      "margin-bottom": "-200px",
-      opacity: "0",
-    },
-    animate: {
-      "margin-bottom": "0",
-      opacity: "1",
-    },
-  };
-
-  const navigateAnimation = {
-    initial: {
-      "margin-top": "-200px",
-      opacity: "0",
-    },
-    animate: {
-      "margin-top": "0",
-      opacity: "1",
-    },
-  };
-
-  const headerAnimation = {
-    initial: {
-      opacity: "0",
-    },
-    animate: {
-      opacity: "1",
-    },
-  };
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    console.log("Page scroll: ", latest);
+  });
 
   return (
     <section className="parallax">
@@ -87,7 +60,7 @@ const Parallax = () => {
           <motion.nav
             initial={navigateAnimation.initial}
             animate={navigateAnimation.animate}
-            transition={{ duration: 1 }}
+            transition={{ duration: COMMON_ANIMATION_DURATION }}
             className="parallax__navigation navigation-parallax"
           >
             <article className="navigation-parallax__left">
@@ -123,7 +96,10 @@ const Parallax = () => {
             <article className="navigation-parallax__right">
               <ul className="navigation-parallax__socials">
                 {sociallinks.map((link) => (
-                  <li className="navigation-parallax__social-logo">
+                  <li
+                    key={link.label}
+                    className="navigation-parallax__social-logo"
+                  >
                     <a
                       href={link.path}
                       className="navigation-parallax__social-link"
@@ -142,7 +118,7 @@ const Parallax = () => {
           <motion.header
             initial={headerAnimation.initial}
             animate={headerAnimation.animate}
-            transition={{ duration: 1 }}
+            transition={{ duration: COMMON_ANIMATION_DURATION }}
             className="parallax__header"
           >
             <h1 className="parallax__title">Nepal Mountains</h1>
@@ -153,7 +129,7 @@ const Parallax = () => {
           <motion.footer
             initial={footerAnimation.initial}
             animate={footerAnimation.animate}
-            transition={{ duration: 1 }}
+            transition={{ duration: COMMON_ANIMATION_DURATION }}
             className="parallax__footer footer-parallax"
           >
             <article className="footer-parallax__scroll scroll-parallax">
@@ -179,7 +155,7 @@ const Parallax = () => {
               className="images-parallax__clouds"
               initial={cloudsAnimation.initial}
               animate={cloudsAnimation.animate}
-              transition={{ duration: 1.2 }}
+              transition={{ duration: COMMON_ANIMATION_DURATION }}
             ></motion.div>
           </div>
           <div className="images-parallax__item">
@@ -187,7 +163,15 @@ const Parallax = () => {
               className="images-parallax__mountains"
               initial={moutainAnimation.initial}
               animate={moutainAnimation.animate}
-              transition={{ duration: 1.2 }}
+              transition={{ duration: COMMON_ANIMATION_DURATION }}
+            ></motion.div>
+          </div>
+          <div className="images-parallax__item">
+            <motion.div
+              className="images-parallax__dark-background"
+              initial={darkBackgroundAnimation.initial}
+              animate={darkBackgroundAnimation.animate}
+              transition={{ duration: COMMON_ANIMATION_DURATION }}
             ></motion.div>
           </div>
         </div>

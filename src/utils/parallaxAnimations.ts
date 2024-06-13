@@ -1,7 +1,8 @@
-const COMMON_MARGIN_VALUE = "-100px";
-const COMMON_INITIAL_PERSPECTIVE_VALUE =
+export const COMMON_MARGIN_VALUE = "-100px";
+export const COMMON_INITIAL_PERSPECTIVE_VALUE =
   "perspective(1280px) translateZ(700px)";
-const COMMON_ANIMATE_PERSPECTIVE_VALUE = "perspective(1280px) translateZ(0)";
+export const COMMON_ANIMATE_PERSPECTIVE_VALUE =
+  "perspective(1280px) translateZ(0)";
 
 export const cloudsAnimation = {
   initial: { transform: COMMON_INITIAL_PERSPECTIVE_VALUE },

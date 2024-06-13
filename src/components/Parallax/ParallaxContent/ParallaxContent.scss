@@ -1,0 +1,33 @@
+.navigation-parallax {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 216px;
+
+  &__list {
+    display: flex;
+    gap: 60px;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 20px;
+  }
+}
+
+.footer-parallax {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  &__scroll {
+    flex: 1 1 auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__share {
+    justify-content: flex-end;
+  }
+}

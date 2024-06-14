@@ -9,6 +9,24 @@ function App() {
     <div className="App">
       <div className="wrapper">
         <Parallax />
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
+        <div>123</div>
       </div>
     </div>
   );

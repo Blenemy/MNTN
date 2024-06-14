@@ -21,20 +21,41 @@ const Parallax = () => {
         transform: "perspective(1280px) translateZ(0)",
         transition: { duration: COMMON_ANIMATION_DURATION },
       });
+    };
 
-      await Promise.all([
-        mountainsControls.start({
-          top: "-50%",
-          transition: { duration: 1 },
-        }),
-        darkBackgroundControls.start({
-          bottom: "0",
-          transition: { duration: 1 },
-        }),
-      ]);
+    const handleScroll = async () => {
+      const scrollValue = scrollY.get();
+      if (scrollValue > 50) {
+        await Promise.all([
+          mountainsControls.start({
+            top: "-50%",
+            transition: { duration: 1 },
+          }),
+          darkBackgroundControls.start({
+            bottom: "0",
+            transition: { duration: 1 },
+          }),
+        ]);
+      } else {
+        await Promise.all([
+          mountainsControls.start({
+            top: "0",
+            transition: { duration: 1 },
+          }),
+          darkBackgroundControls.start({
+            bottom: "-40%",
+            transition: { duration: 1 },
+          }),
+        ]);
+      }
     };
 
     animateInitialSequence();
+
+    const unsubscribeScroll = scrollY.onChange(handleScroll);
+    return () => {
+      unsubscribeScroll();
+    };
   }, [mountainsControls, darkBackgroundControls, scrollY]);
 
   return (
